@@ -25,9 +25,8 @@ using System.Threading.Tasks;
 
 namespace Gigya.Microdot.ServiceProxy.Caching
 {
-    public interface IRevokeManager
+    public interface IRevokeListener
     {
-        Task Revoke(params string[] keys);
-        void Subscribe(Func<string[], Task> handleRevokeAsync);
+        void OnRevoke(Func<string[], Task> onRevokeHandler);
     }
 }
